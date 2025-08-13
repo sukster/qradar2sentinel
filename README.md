@@ -24,7 +24,8 @@ We also need to create a On-premises data gateway resource in Azure. Follow the 
 
 <img width="877" height="704" alt="image" src="https://github.com/user-attachments/assets/ee035b48-b1c3-4d78-8ef6-3f115f96018c" />
 <br><br>
-Note: If you do not see the gateway name under the Installation, you need for wait for couple more minutes for it to show up.
+Note: If you do not see the gateway name under the Installation Name, you need for wait for couple more minutes for it to show up.
+<br><br>
 
 ## Generate QRadar API token
 
