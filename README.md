@@ -95,4 +95,5 @@ Once the connector resource has been created, edit the connector and import the 
 
 Then in the General Information section, update the Host field and add the hostname (or FQDN) for your QRadar. This must be the same as the Common Name (CN) on your QRadar's SSL certificate. Important point is that the data gateway does not support the default SSL certificate that comes with fresh QRadar installation. You must either generate a self-signed certificate or obtain a commercial certificate for your QRadar.
 
+<img width="797" height="851" alt="image" src="https://github.com/user-attachments/assets/78b4b58a-5e53-4702-b10b-c71b7f1fb183" />
 
