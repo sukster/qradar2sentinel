@@ -104,7 +104,7 @@ This must be the same as the Common Name (CN) on your QRadar's SSL certificate.
 <img width="1313" height="683" alt="image" src="https://github.com/user-attachments/assets/98720e11-bcdc-451b-bb03-76cee1fca663" />
 <br><br>
 
-### QRadar SSL Certificate
+### QRadar SSL Certificate considerations
 Important point is that the <strong>data gateway does not support the default SSL certificate that comes with fresh QRadar installation. You must either generate a self-signed certificate or obtain a commercial certificate for your QRadar</strong>. In my case, I generated a self-signed certificate (see the QRadar self-signed certificate install procedure.txt in this repository) and then used the hosts file on the server to ensure that it can resolve the FQDN to the QRadar IP address. 
 <br><br>
 <img width="1058" height="722" alt="image" src="https://github.com/user-attachments/assets/9976f46c-8b2f-4e74-b4f7-3622b0e2c47a" />
@@ -115,3 +115,9 @@ Finally, to make the certificate trusted by the Windows server, I had to export 
 <img width="1247" height="713" alt="image" src="https://github.com/user-attachments/assets/f4bb87a7-4c15-4f5d-86f9-a59ed374c766" />
 <br><br>
 The easiest way is to download the certificate to the server, double-click it, select Install Certificate -> Local Machine -> select "Trusted Root Certification Authorities" store.
+<br><br>
+
+## Deploy Azure Logic App
+Finally, we need to deploy and configure the Azure logic app.
+
+### Deploy to Azure
