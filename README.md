@@ -122,4 +122,4 @@ Finally, we need to deploy and configure the Azure logic app.
 
 ### Deploy to Azure
 tbd
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Sentinel%2Fmaster%2FPlaybooks%2FPaloAlto-PAN-OS%2FPaloAltoCustomConnector%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https://raw.githubusercontent.com/sukster/qradar2sentinel/refs/heads/main/azuredeploy.json)
