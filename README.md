@@ -80,3 +80,11 @@ In Azure portal go to the qradar-api key vault and under Objects click Secrets. 
 
 <img width="911" height="564" alt="image" src="https://github.com/user-attachments/assets/65f9f514-b10a-423d-b253-cc6746bc725d" />
 
+## Deploy Logic Apps Custom Connector
+We will deploy a custom connector for QRadar that will allow the logic app to query QRadar API using the data gateway. 
+In Azure portal, create a new Logic Apps Custom Connector and call it "QRadar". 
+<br><br>
+<img width="876" height="653" alt="image" src="https://github.com/user-attachments/assets/fa95009a-48d7-4b57-a338-63bc84da1af8" />
+
+
+
