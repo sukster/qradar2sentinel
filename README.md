@@ -121,5 +121,6 @@ The easiest way is to download the certificate to the server, double-click it, s
 Finally, we need to deploy and configure the Azure logic app.
 
 ### Deploy to Azure
-tbd
+You can deploy the logic app to Azure by clicking the button below.
+<br><br>
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsukster%2Fqradar2sentinel%2Frefs%2Fheads%2Fmain%2Fazuredeploy.json)
