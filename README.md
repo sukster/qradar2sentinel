@@ -101,7 +101,8 @@ Then in the General Information section, update the Host field and add the hostn
 
 ### QRadar SSL Certificate
 Important point is that the <strong>data gateway does not support the default SSL certificate that comes with fresh QRadar installation. You must either generate a self-signed certificate or obtain a commercial certificate for your QRadar</strong>. In my case, I generated a self-signed certificate (see the QRadar self-signed certificate install procedure.txt in this repository) and then used the hosts file on the server to ensure that it can resolve the FQDN to the QRadar IP address. 
-
-
+<br>
+<img width="1058" height="722" alt="image" src="https://github.com/user-attachments/assets/9976f46c-8b2f-4e74-b4f7-3622b0e2c47a" />
+<br><br>
 
 Finally, to make the certificate trusted, I had to import it to the Windows server's trusted certification authorities store.
