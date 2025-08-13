@@ -133,4 +133,9 @@ The logic app needs to have a permission to read the secrets from the key vault.
 <br><br>
 <img width="947" height="622" alt="image" src="https://github.com/user-attachments/assets/11fb612a-d75d-409b-b7e1-227959c0abd4" />
 <br><br>
+Select the logic app name under managed identities.
+<br><br>
 <img width="750" height="528" alt="image" src="https://github.com/user-attachments/assets/830a014c-fc43-4d5b-ae65-c9da5e4db268" />
+<br><br>
+## Create Analytic Rule in Sentinel
+TBD
