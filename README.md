@@ -17,9 +17,10 @@ On-premises Data Gateway supports either Windows Server 2019 and higher or Windo
 <img width="920" height="633" alt="image" src="https://github.com/user-attachments/assets/965e1d2a-8566-4b6d-a8c2-253ec2eb99d9" />
 
 ## Deployment Procedure in Azure
-We also need to create a On-premises data gateway resource in Azure. Follow the documentation here to deploy the gateway resource in Azure https://learn.microsoft.com/en-us/azure/logic-apps/connect-on-premises-data-sources?tabs=consumption
+We also need to create a On-premises data gateway resource in Azure. Follow the documentation here to deploy the gateway resource in Azure https://learn.microsoft.com/en-us/azure/logic-apps/connect-on-premises-data-sources?tabs=consumption. Important point to note is that to deploy the gateway in Azure you must use the same account that you used to install the gateway on Windows. If this was a regular M365 user account, make sure that this account has a contributor role to the Azure resource group in our case it's called "rg-sentinellogicapp".
 
-
+<img width="877" height="704" alt="image" src="https://github.com/user-attachments/assets/ee035b48-b1c3-4d78-8ef6-3f115f96018c" />
+<br><br>
 
 ## Generate QRadar API token
 
