@@ -36,3 +36,14 @@ After the autorized service is created you will be given a security token. You n
 <img width="615" height="329" alt="image" src="https://github.com/user-attachments/assets/84832b7e-2897-42ae-b3f5-9131e19cd09a" />
 
 ## Create Azure Key Vault
+We will store the QRadar API token safely in Azure Key Vault
+
+### Create Resource Group
+In Azure portal create a resource group under your subscription. We will store all resources for this solution in this resource group.
+
+<img width="883" height="475" alt="image" src="https://github.com/user-attachments/assets/d81df188-f6a3-40d1-a39e-7420e1eda082" />
+
+
+### Create Key Vault
+In Azure portal and go to Key Vaults and click Create
+
