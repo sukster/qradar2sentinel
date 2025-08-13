@@ -1,5 +1,5 @@
 # Description
-Send offense contributing events from IBM QRadar to Microsoft Sentinel and eventually correlate QRadar events with other events in Defender XDR.
+Send offense contributing events from IBM QRadar to Microsoft Sentinel and eventually correlate QRadar events with other events in Defender XDR. This solution is suitable for customers who want keep their QRadar SIEM but want to use Microsoft Sentinel (or Defender XDR) as a primary security console for incident investigations. A benefit of integrating QRadar into Sentinel is that E5 customers can use advanced correlation capabilities built into Defender XDR which will be able to correlate the events from QRadar with the events in Defender XDR and Sentinel. 
 
 # Architecture
 <img width="1533" height="1014" alt="image" src="https://github.com/user-attachments/assets/09796f37-c023-4d32-93db-5a3726e01743" />
@@ -32,7 +32,6 @@ In QRadar go to Admin tab and select Authorized Services. Do not select to expir
 <img width="1383" height="573" alt="image" src="https://github.com/user-attachments/assets/0cbc38ea-924a-42b5-94d4-545cddb3fa04" />
 
 After the autorized service is created you will be given a security token. You need to copy this token to a secure location.
-
 
 <img width="615" height="329" alt="image" src="https://github.com/user-attachments/assets/84832b7e-2897-42ae-b3f5-9131e19cd09a" />
 
