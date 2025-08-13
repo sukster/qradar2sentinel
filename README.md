@@ -6,6 +6,8 @@ Send offense contributing events from IBM QRadar to Microsoft Sentinel and event
 
 
 # Deployment
+The following deployment has been tested with QRadar ver. 7.5 UpdatePackage 11.
+
 
 ## Generate QRadar API token
 
@@ -21,3 +23,10 @@ In QRadar go to Admin tab and select User Roles -> New
 
 <img width="1109" height="803" alt="image" src="https://github.com/user-attachments/assets/a7a88419-ff98-46ef-9799-2f4b494de819" />
 
+Make sure you deploy the changes in QRadar Admin tab.
+
+### Create Authorized Service
+We will create a new authorized service and select the security profile and user profile we just created.
+In QRadar go to Admin tab and select Authorized Services
+
+<img width="1383" height="573" alt="image" src="https://github.com/user-attachments/assets/0cbc38ea-924a-42b5-94d4-545cddb3fa04" />
