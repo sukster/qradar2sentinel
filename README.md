@@ -8,6 +8,12 @@ Send offense contributing events from IBM QRadar to Microsoft Sentinel and event
 # Deployment
 The following deployment has been tested with QRadar ver. 7.5 UpdatePackage 11.
 
+## Install On-premises Data Gateway
+Let's start with installing the data gateway which will run on-premise where your QRadar is deployed. This data gateway will serve as a proxy between QRadar and Azure. It will allow the logic app to query the QRadar API and will ensure that all communication sent to Azure is encrypted.
+
+## Install on Windows
+On-premises Data Gateway supports either Windows Server or Windows 11. 
+
 
 ## Generate QRadar API token
 
