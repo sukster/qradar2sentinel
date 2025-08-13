@@ -11,13 +11,13 @@ The following deployment has been tested with QRadar ver. 7.5 UpdatePackage 11.
 ## Install On-premises Data Gateway
 Let's start with installing the data gateway which will run on-premise where your QRadar is deployed. This data gateway will serve as a proxy between QRadar and Azure. It will allow the logic app to query the QRadar API and will ensure that all communication sent to Azure is encrypted.
 
-## Install Procedure
+## Install Procedure on Windows
 On-premises Data Gateway supports either Windows Server 2019 and higher or Windows 10 and higher. I recommend Windows Server for performace reasons but if you only have Windows 11 license, it should be fine. I successfully tested this deployement on Windows Server 2022 Standard which was Azure Arc joined and Windows 11 Enterprise which was Entra ID joined. Follow the installation procedure here: https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-install#download-and-install-a-standard-gateway. During the installation you will need to sign in with your organization's Microsoft 365 account. The gateway will be associated with that account and you will be able to manage the gateway using that account. In theory, this could be a regular M365 E3 or E5 user account without additional administrative roles however make sure that this account will not be disabled or deleted one day. Another important point to keep in mind during the gateway installation to install the gateway in the same Azure region where the logic apps custom connector will be deployed otherwise the gateway will not be able to use the custom connector. Changing the Azure region can be easily overlooked during the installation and so below is the screenshot where you can change it. I recommend deploying all resources for this solution in the same Azure region.
 
 <img width="920" height="633" alt="image" src="https://github.com/user-attachments/assets/965e1d2a-8566-4b6d-a8c2-253ec2eb99d9" />
 
-
-
+## Deployment Procedure in Azure
+We also need to create a On-premises data gateway resource in Azure. Follow the documentation here to deploy the gateway resource in Azure https://learn.microsoft.com/en-us/azure/logic-apps/connect-on-premises-data-sources?tabs=consumption
 
 
 
