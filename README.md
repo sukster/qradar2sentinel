@@ -93,7 +93,7 @@ Once the connector resource has been created, edit the connector and import the 
 <img width="1253" height="618" alt="image" src="https://github.com/user-attachments/assets/4e842280-dc06-4efa-9bf0-6d92ad5e506a" />
 <br><br>
 
-Then in the General Information section, update the Host field and add the hostname (or FQDN) for your QRadar. This must be the same as the Common Name (CN) on your QRadar's SSL certificate. Important point is that the data gateway does not support the default SSL certificate that comes with fresh QRadar installation. You must either generate a self-signed certificate or obtain a commercial certificate for your QRadar.
+Then in the General Information section, update the Host field and add the hostname (or FQDN) for your QRadar. This must be the same as the Common Name (CN) on your QRadar's SSL certificate. Important point is that the <strong>data gateway does not support the default SSL certificate that comes with fresh QRadar installation. You must either generate a self-signed certificate or obtain a commercial certificate for your QRadar</strong>. In my case, I generated a self-signed certificate and then used the hosts file on the server to ensure that it can resolve the FQDN.
 
 <img width="797" height="851" alt="image" src="https://github.com/user-attachments/assets/78b4b58a-5e53-4702-b10b-c71b7f1fb183" />
 
