@@ -1,5 +1,5 @@
 # Description
-Send offense contributing events from IBM QRadar to Microsoft Sentinel and eventually correlate QRadar events with other events in Defender XDR. This solution is suitable for customers who want keep their QRadar SIEM but want to use Microsoft Sentinel (or Defender XDR) as a primary security console for incident investigations. A benefit of integrating QRadar into Sentinel is that E5 customers can use advanced correlation capabilities built into Defender XDR which will be able to correlate the events from QRadar with the events in Defender XDR and Sentinel. 
+Send offense contributing events from IBM QRadar to Microsoft Sentinel and eventually correlate QRadar events with other events in Defender XDR. This solution is suitable for customers who want keep their QRadar SIEM but want to use Microsoft Sentinel (or Defender XDR) as a primary security console for incident investigations.
 
 # Architecture
 <img width="1533" height="1014" alt="image" src="https://github.com/user-attachments/assets/09796f37-c023-4d32-93db-5a3726e01743" />
