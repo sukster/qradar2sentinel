@@ -60,7 +60,7 @@ So that you can add secrets to the key vault, you need to have the Key Vault Sec
 
 ### Create Secret in Key Vault
 We will add the QRadar API token to the key vault as a secret.
-In Azure portal go to the qradar-api key vault and under Objects click Secrets. Then click Generate/Import button. Paste the QRadar API token to the field called Secret value and click Create.
+In Azure portal go to the qradar-api key vault and under Objects click Secrets. Then click Generate/Import button. We will call this secret "qradar-api-secret". Paste the QRadar API token to the field called Secret value and click Create.
 
 <img width="911" height="564" alt="image" src="https://github.com/user-attachments/assets/65f9f514-b10a-423d-b253-cc6746bc725d" />
 
