@@ -170,7 +170,7 @@
                             "inputs": {
                                 "host": {
                                     "connection": {
-                                        "name": "@parameters('$connections')['qradar-offenses']['connectionId']"
+                                        "name": "@parameters('$connections')['qradar']['connectionId']"
                                     }
                                 },
                                 "method": "get",
@@ -379,7 +379,7 @@
                                     "inputs": {
                                         "host": {
                                             "connection": {
-                                                "name": "@parameters('$connections')['qradar-offenses']['connectionId']"
+                                                "name": "@parameters('$connections')['qradar']['connectionId']"
                                             }
                                         },
                                         "method": "post",
@@ -429,7 +429,7 @@
                                     "inputs": {
                                         "host": {
                                             "connection": {
-                                                "name": "@parameters('$connections')['qradar-offenses']['connectionId']"
+                                                "name": "@parameters('$connections')['qradar']['connectionId']"
                                             }
                                         },
                                         "method": "get",
@@ -448,7 +448,7 @@
                                             "inputs": {
                                                 "host": {
                                                     "connection": {
-                                                        "name": "@parameters('$connections')['qradar-offenses']['connectionId']"
+                                                        "name": "@parameters('$connections')['qradar']['connectionId']"
                                                     }
                                                 },
                                                 "method": "get",
@@ -548,7 +548,7 @@
                                     "inputs": {
                                         "host": {
                                             "connection": {
-                                                "name": "@parameters('$connections')['qradar-offenses']['connectionId']"
+                                                "name": "@parameters('$connections')['qradar']['connectionId']"
                                             }
                                         },
                                         "method": "post",
@@ -573,7 +573,7 @@
                                     "inputs": {
                                         "host": {
                                             "connection": {
-                                                "name": "@parameters('$connections')['qradar-offenses']['connectionId']"
+                                                "name": "@parameters('$connections')['qradar']['connectionId']"
                                             }
                                         },
                                         "method": "post",
@@ -600,7 +600,7 @@
                                     "inputs": {
                                         "host": {
                                             "connection": {
-                                                "name": "@parameters('$connections')['qradar-offenses']['connectionId']"
+                                                "name": "@parameters('$connections')['qradar']['connectionId']"
                                             }
                                         },
                                         "method": "get",
@@ -684,7 +684,7 @@
                             "inputs": {
                                 "host": {
                                     "connection": {
-                                        "name": "@parameters('$connections')['qradar-offenses']['connectionId']"
+                                        "name": "@parameters('$connections')['qradar']['connectionId']"
                                     }
                                 },
                                 "method": "get",
@@ -713,7 +713,7 @@
                                         "inputs": {
                                             "host": {
                                                 "connection": {
-                                                    "name": "@parameters('$connections')['qradar-offenses']['connectionId']"
+                                                    "name": "@parameters('$connections')['qradar']['connectionId']"
                                                 }
                                             },
                                             "method": "post",
@@ -781,9 +781,9 @@
                 "parameters": {
                     "$connections": {
                         "value": {
-                            "QRadarCustomConnector-Prod": {
+                            "qradar": {
                                 "connectionId": "[resourceId('Microsoft.Web/connections', variables('QRadarConnectorConnectionName'))]",
-                                "connectionName": "QRadarCustomConnector-Prod",
+                                "connectionName": "qradar",
                                 "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('QradarCustomConnectorName'))]"
                             },
                             "keyvault": {
