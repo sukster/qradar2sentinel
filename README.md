@@ -100,8 +100,8 @@ Then in the General Information section, update the Host field and add the hostn
 <img width="797" height="851" alt="image" src="https://github.com/user-attachments/assets/78b4b58a-5e53-4702-b10b-c71b7f1fb183" />
 <br><br>
 This must be the same as the Common Name (CN) on your QRadar's SSL certificate.
-<br>
-<img width="1313" height="683" alt="image" src="https://github.com/user-attachments/assets/c986af5f-a679-4baf-8ab9-8b39cc573a61" />
+<br><br>
+<img width="1313" height="683" alt="image" src="https://github.com/user-attachments/assets/98720e11-bcdc-451b-bb03-76cee1fca663" />
 <br><br>
 
 ### QRadar SSL Certificate
