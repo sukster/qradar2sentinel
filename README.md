@@ -137,5 +137,11 @@ Select the logic app name under managed identities.
 <br><br>
 <img width="750" height="528" alt="image" src="https://github.com/user-attachments/assets/830a014c-fc43-4d5b-ae65-c9da5e4db268" />
 <br><br>
-## Create Analytic Rule in Sentinel
-TBD
+## Review Logic App in Editor
+Open the logic app editor and check all the logic app boxes for any errors.
+<br><br>
+## Set Reoccurrence
+Configure the first box in the logic app called Reoccurrence and set how often the logic app should execute.
+<br><br>
+## Enable the Logic App
+The logic app is disabled by default so once everything has been configured you need to enable it to make it run.
