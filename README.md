@@ -11,5 +11,7 @@ Send offense contributing events from IBM QRadar to Microsoft Sentinel and event
 
 ### Create Security Profile
 We will add all networks and all log sources assuming that the offense contributing events may come from various log sources and networks.
+In QRadar go to Admin tab and select Security Profiles -> New
+
 <img width="1075" height="638" alt="image" src="https://github.com/user-attachments/assets/3ad14851-65a7-4499-ba93-a7fbe4651855" />
 
