@@ -84,6 +84,8 @@ In Azure portal go to the qradar-api key vault and under Objects click Secrets. 
 
 ## Deploy Logic Apps Custom Connector
 We will deploy a custom connector for QRadar that will allow the logic app to query QRadar API using the data gateway. 
+
+### Deployment in Azure
 In Azure portal, create a new Logic Apps Custom Connector and call it "QRadar". 
 <br><br>
 <img width="876" height="653" alt="image" src="https://github.com/user-attachments/assets/fa95009a-48d7-4b57-a338-63bc84da1af8" />
@@ -93,7 +95,13 @@ Once the connector resource has been created, edit the connector and import the 
 <img width="1253" height="618" alt="image" src="https://github.com/user-attachments/assets/4e842280-dc06-4efa-9bf0-6d92ad5e506a" />
 <br><br>
 
-Then in the General Information section, update the Host field and add the hostname (or FQDN) for your QRadar. This must be the same as the Common Name (CN) on your QRadar's SSL certificate. Important point is that the <strong>data gateway does not support the default SSL certificate that comes with fresh QRadar installation. You must either generate a self-signed certificate or obtain a commercial certificate for your QRadar</strong>. In my case, I generated a self-signed certificate (see the QRadar self-signed certificate install procedure.txt in this repository) and then used the hosts file on the server to ensure that it can resolve the FQDN to the QRadar IP address. Finally, to make the certificate trusted, I had to import it to the Windows server's trusted certification authorities store.
+Then in the General Information section, update the Host field and add the hostname (or FQDN) for your QRadar. This must be the same as the Common Name (CN) on your QRadar's SSL certificate. 
 
 <img width="797" height="851" alt="image" src="https://github.com/user-attachments/assets/78b4b58a-5e53-4702-b10b-c71b7f1fb183" />
 
+### QRadar SSL Certificate
+Important point is that the <strong>data gateway does not support the default SSL certificate that comes with fresh QRadar installation. You must either generate a self-signed certificate or obtain a commercial certificate for your QRadar</strong>. In my case, I generated a self-signed certificate (see the QRadar self-signed certificate install procedure.txt in this repository) and then used the hosts file on the server to ensure that it can resolve the FQDN to the QRadar IP address. 
+
+
+
+Finally, to make the certificate trusted, I had to import it to the Windows server's trusted certification authorities store.
