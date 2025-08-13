@@ -128,4 +128,9 @@ You can deploy and configure the logic app to Azure by clicking the button below
 <br><br>
 <img width="850" height="815" alt="image" src="https://github.com/user-attachments/assets/f8803976-8be8-48b7-8bc0-13db9f56770b" />
 <br><br>
-
+### Configure Permissions for Key Vault
+The logic app needs to have a permission to read the secrets from the key vault. We configure this by granting the logic app the "Key Vault Secrets User" role on the qradar-api key vault.
+<br><br>
+<img width="947" height="622" alt="image" src="https://github.com/user-attachments/assets/11fb612a-d75d-409b-b7e1-227959c0abd4" />
+<br><br>
+<img width="750" height="528" alt="image" src="https://github.com/user-attachments/assets/830a014c-fc43-4d5b-ae65-c9da5e4db268" />
