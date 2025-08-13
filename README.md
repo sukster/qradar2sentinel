@@ -110,7 +110,8 @@ Important point is that the <strong>data gateway does not support the default SS
 <img width="1058" height="722" alt="image" src="https://github.com/user-attachments/assets/9976f46c-8b2f-4e74-b4f7-3622b0e2c47a" />
 <br><br>
 
-Finally, to make the certificate trusted by the Windows server, I had to export it and import it to the Windows server's Trusted Root Certification Authorities store.
+Finally, to make the certificate trusted by the Windows server, I had to export it (on the certificate there is an Export button) and import it to the Windows server's Trusted Root Certification Authorities store.
 <br><br>
 <img width="1247" height="713" alt="image" src="https://github.com/user-attachments/assets/f4bb87a7-4c15-4f5d-86f9-a59ed374c766" />
 <br><br>
+The easiest way is to download the certificate to the server, double-click it, select Install Certificate -> Local Machine -> select "Trusted Root Certification Authorities" store.
