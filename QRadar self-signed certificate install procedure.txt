@@ -1,0 +1,45 @@
+Steps based on this video: https://www.youtube.com/watch?v=JZvk79yK-Po and this documentation: https://www.ibm.com/docs/en/qsip/7.5?topic=certificates-installing-new-ssl-certificate
+
+
+1. Generate a self-signed certificate for QRadar:
+
+openssl req -new -x509 -newkey rsa:2048 -days 3650 -sha512 -nodes -x509 -subj "/C=US/ST=WI/L=Milwaukee/O=Microsoft/OU=Security/CN=qradar750.homelab.local" -keyout qradar-tls.key -out qradar-tls.cert
+
+
+2. Convert the private key to the required DER encode PKCS#8 format:
+
+openssl pkcs8 -topk8 -inform PEM -outform DER -in qradar-tls.key -out qradar-tls.pk8 -nocrypt
+
+
+3. Remove the password from the private key:
+
+openssl rsa -in qradar-tls.key -out qradar-tls-nopass.key
+
+
+4. Validate certificate chain:
+
+openssl verify qradar-tls.cert
+
+If the validation fails do this:
+
+cp qradar-tls.cert /etc/pki/ca-trust/source/anchors/
+
+update-ca-trust
+
+openssl verify qradar-tls.cert
+
+
+5. Install the new certificate:
+
+/opt/qradar/bin/install-ssl-cert.sh
+
+
+6. Check that certificate has been installed successfully:
+
+openssl x509 -noout -subject -issuer -dates -in /etc/httpd/conf/certs/cert.cert
+
+
+7. Reload the certificate:
+
+systemctl restart podman
+
