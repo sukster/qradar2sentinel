@@ -88,7 +88,11 @@ In Azure portal, create a new Logic Apps Custom Connector and call it "QRadar".
 <br><br>
 <img width="876" height="653" alt="image" src="https://github.com/user-attachments/assets/fa95009a-48d7-4b57-a338-63bc84da1af8" />
 <br><br>
-Once the connector resource has been created, edit the connector and import the connector.json file which can be downloaded from this repository. Then click "Update connector".
+Once the connector resource has been created, edit the connector and import the connector.json file which can be downloaded from this repository.
 
 <img width="1253" height="618" alt="image" src="https://github.com/user-attachments/assets/4e842280-dc06-4efa-9bf0-6d92ad5e506a" />
+<br><br>
+
+Then in the General Information section, update the Host field and add the hostname (or FQDN) for your QRadar. This must be the same as the Common Name (CN) on your QRadar's SSL certificate. Important point is that the data gateway does not support the default SSL certificate that comes with fresh QRadar installation. You must either generate a self-signed certificate or obtain a commercial certificate for your QRadar.
+
 
