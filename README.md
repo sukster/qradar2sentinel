@@ -45,11 +45,11 @@ In Azure portal create a resource group under your subscription. We will store a
 <br><br>
 
 ### Create Key Vault
-In Azure portal and go to Key Vaults and click Create.
+In Azure portal and go to Key Vaults and click Create. Select the subscription and the resource group we just created. We will call the key vault "qradar-api".
 
 <img width="909" height="830" alt="image" src="https://github.com/user-attachments/assets/77f5246e-4f52-475c-9de0-2961b90f9f0c" />
 
 
-You may leave the recovery options to default settings.
+For the rest of the configuration settings on the key vault leave the defaults.
 
 
