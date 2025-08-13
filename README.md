@@ -45,9 +45,10 @@ In Azure portal create a resource group under your subscription. We will store a
 
 
 ### Create Key Vault
-In Azure portal and go to Key Vaults and click Create
+In Azure portal and go to Key Vaults and click Create.
 
-<img width="892" height="318" alt="image" src="https://github.com/user-attachments/assets/eeea4654-6a7b-4b83-82e3-8349c0b5a977" />
+<img width="909" height="830" alt="image" src="https://github.com/user-attachments/assets/77f5246e-4f52-475c-9de0-2961b90f9f0c" />
+
 
 You may leave the recovery options to default settings.
 
