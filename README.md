@@ -11,12 +11,8 @@ The following deployment has been tested with QRadar ver. 7.5 UpdatePackage 11.
 ## Install On-premises Data Gateway
 Let's start with installing the data gateway which will run on-premise where your QRadar is deployed. This data gateway will serve as a proxy between QRadar and Azure. It will allow the logic app to query the QRadar API and will ensure that all communication sent to Azure is encrypted.
 
-## Install on Windows
-On-premises Data Gateway supports either Windows Server 2019 and higher or Windows 10 and higher. I recommend Windows Server for performace reasons but if you only have Windows 11 license, it should be fine. I successfully tested this deployement on Windows Server 2022 Standard and Windows 11 Enterprise.
-<br><br>
-Download the On-premises Data Gateway installation file to the Windows Server from here: https://www.microsoft.com/en-us/download/details.aspx?id=53127 and run the setup.
-
-<img width="915" height="640" alt="image" src="https://github.com/user-attachments/assets/8ebe9d8e-5767-4680-ad7e-ae12fd276772" />
+## Install Procedure
+On-premises Data Gateway supports either Windows Server 2019 and higher or Windows 10 and higher. I recommend Windows Server for performace reasons but if you only have Windows 11 license, it should be fine. I successfully tested this deployement on Windows Server 2022 Standard and Windows 11 Enterprise. Follow the installation procedure here: https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-install#download-and-install-a-standard-gateway. During the installation you will need to sign in with your organization's Microsoft 365 account. The gateway will be associated with that account and you will be able to manage the gateway using that account so choose an account which will not be disabled or deleted one day. 
 
 
 
