@@ -33,6 +33,7 @@ In QRadar go to Admin tab and select Authorized Services. Do not select to expir
 
 After the autorized service is created you will be given a security token. You need to copy this token to a secure location.
 
+
 <img width="615" height="329" alt="image" src="https://github.com/user-attachments/assets/84832b7e-2897-42ae-b3f5-9131e19cd09a" />
 
 ## Create Azure Key Vault
