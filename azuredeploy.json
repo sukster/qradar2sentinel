@@ -412,14 +412,6 @@
                                                 }
                                             }
                                         }
-                                    },
-                                    "runtimeConfiguration": {
-                                        "secureData": {
-                                            "properties": [
-                                                "inputs",
-                                                "outputs"
-                                            ]
-                                        }
                                     }
                                 },
                                 "Get_Search_Results": {
