@@ -55,7 +55,7 @@
     "variables": {
         "AzureLogAnalyticsDataCollectorConnectionName": "[concat('azureloganalyticsdatacollector-', parameters('PlaybookName'))]",
         "AzureKeyVaultConnectionName": "[concat('keyvault-', parameters('PlaybookName'))]",
-        "QRadarConnectorConnectionName": "[concat('qradarconnector-', parameters('PlaybookName'))]",
+        "QRadarConnectorConnectionName": "[concat('qradar-', parameters('PlaybookName'))]",
         "singlequote": "'"
     },
     "resources": [
