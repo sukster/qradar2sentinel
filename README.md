@@ -149,8 +149,22 @@ Configure the first box in the logic app called Reoccurrence and set how often t
 The logic app is disabled by default so once everything has been configured you need to enable it to make it run.
 
 ## Offense Events in Sentinel
-Check that the offense contributing events have been ingested into the OffenseEvents_CL table in the Sentinel workspace.
+Check that the offense contributing events have been ingested into the OffenseEvents_CL table in the Sentinel workspace. Note that the event payload is Base64 encoded. We will need to decode it in the the Sentinel analytic rule.
 <br><br>
 <img width="882" height="467" alt="image" src="https://github.com/user-attachments/assets/2d2b9b23-a4fd-4dcf-ad6e-caa818e00083" />
 <br><br>
+## Create Analytic Rule in Sentinel
+Although we have already ingested the offense events from QRadar to Sentinel, we may want to correlate the QRadar events with our existing events in Sentinel (or Defender XDR). For this reason, we need to create an analytic rule in Sentinel and map the Entities in the rule. Note that Defender XDR can automatically correlate the events from QRadar with existing events in Defender XDR but it will correlate based on the entities you map in the analytic rule.
+<br><br>
+Go to Sentinel and select Analytics -> Create -> Scheduled query rule.
+<br><br>
+<img width="619" height="602" alt="image" src="https://github.com/user-attachments/assets/5c5b949b-784a-4825-92fc-05eae205c8fc" />
+<br><br>
+Add the following query to the rule logic:
+<br><br>
+<strong>OffenseEvents_CL
+| extend payload_decoded = base64_decode_tostring(payload_s)
+| project-away payload_s</strong>
+<br><br>
+<img width="587" height="353" alt="image" src="https://github.com/user-attachments/assets/b4880cb9-9f27-4178-b2ce-cadcf0635f84" />
 
