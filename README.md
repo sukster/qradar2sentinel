@@ -126,6 +126,8 @@ You can deploy and configure the logic app to Azure by clicking the button below
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsukster%2Fqradar2sentinel%2Frefs%2Fheads%2Fmain%2Fazuredeploy.json)
 
 <br><br>
+Configure the logic app template based on the screenshot below.
+<br><br>
 <img width="850" height="815" alt="image" src="https://github.com/user-attachments/assets/f8803976-8be8-48b7-8bc0-13db9f56770b" />
 <br><br>
 ### Configure Permissions for Key Vault
@@ -137,11 +139,18 @@ Select the logic app name under managed identities.
 <br><br>
 <img width="750" height="528" alt="image" src="https://github.com/user-attachments/assets/830a014c-fc43-4d5b-ae65-c9da5e4db268" />
 <br><br>
-## Review Logic App in Editor
+### Review Logic App in Editor
 Open the logic app editor and check all the logic app boxes for any errors.
 <br><br>
-## Set Reoccurrence
+### Set Reoccurrence
 Configure the first box in the logic app called Reoccurrence and set how often the logic app should execute.
 <br><br>
-## Enable the Logic App
+### Enable the Logic App
 The logic app is disabled by default so once everything has been configured you need to enable it to make it run.
+
+## Offense Events in Sentinel
+Check that the offense contributing events have been ingested into the OffenseEvents_CL table in the Sentinel workspace.
+<br><br>
+<img width="882" height="467" alt="image" src="https://github.com/user-attachments/assets/2d2b9b23-a4fd-4dcf-ad6e-caa818e00083" />
+<br><br>
+
