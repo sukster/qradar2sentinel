@@ -105,10 +105,12 @@
             "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/customApis/', parameters('QradarCustomConnectorName'))]"
                 },
             "displayName": "[variables('QRadarConnectorConnectionName')]",
-            "parameterValues": {},
-            "nonSecretParameterValues": {
-                "gateway": "[resourceId('Microsoft.Web/connectionGateways', parameters('On-PremisesDataGatewayName'))]"
-            }
+            "parameterValues": {
+                "authType": "anonymous",
+                "gateway": {
+                        "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Web/connectionGateways/', parameters('On-PremisesDataGatewayName'))]"
+                    }
+                }
             }
         },
         {
