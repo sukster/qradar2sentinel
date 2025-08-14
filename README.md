@@ -105,7 +105,7 @@ This must be the same as the Common Name (CN) on your QRadar's SSL certificate.
 <br><br>
 
 ### QRadar SSL Certificate considerations
-Important point is that the <strong>data gateway does not support the default SSL certificate that comes with fresh QRadar installation. You must either generate a self-signed certificate or obtain a commercial certificate for your QRadar</strong>. In my case, I generated a self-signed certificate (see the QRadar self-signed certificate install procedure.txt in this repository) and then used the hosts file on the server to ensure that it can resolve the FQDN to the QRadar IP address. Note that these certificate-related steps below may not be required in your case for example if you have a commercial certificate and DNS resolution.
+Important point is that the <strong>data gateway does not support the default SSL certificate that comes with fresh QRadar installation. You must either generate a self-signed certificate or obtain a commercial certificate for your QRadar</strong>. In my case, I generated a self-signed certificate (see the QRadar self-signed certificate install procedure.txt in this repository) and then (because I don't have a DNS server in my lab) I used the hosts file on the server to ensure that it can resolve the FQDN to the QRadar IP address. Note that these certificate-related steps below may not be required in your case for example if you have a commercial certificate and DNS resolution.
 <br><br>
 <img width="1058" height="722" alt="image" src="https://github.com/user-attachments/assets/9976f46c-8b2f-4e74-b4f7-3622b0e2c47a" />
 <br><br>
