@@ -160,11 +160,15 @@ Go to Sentinel and select Analytics -> Create -> Scheduled query rule.
 <br><br>
 <img width="619" height="602" alt="image" src="https://github.com/user-attachments/assets/5c5b949b-784a-4825-92fc-05eae205c8fc" />
 <br><br>
-Add the following query to the rule logic:
+Add the following query to the rule logic. The query will decode the Base64 payload and remove the original encoded field.
 <br><br>
 <strong>OffenseEvents_CL
 | extend payload_decoded = base64_decode_tostring(payload_s)
 | project-away payload_s</strong>
 <br><br>
 <img width="587" height="353" alt="image" src="https://github.com/user-attachments/assets/b4880cb9-9f27-4178-b2ce-cadcf0635f84" />
+<br><br>
+As mentioned, without entity mapping Defender XDR will not be able to automatically correlate its events with the new events from QRadar, therefore we need to create mappings for each entity that we want Defender XDR to correlate with. The following screenshot is just an idea. In practice, you may wan to "extend" new entities from the payload but this will be specific to each use case and require testing and tuning.
+<br><br>
+<img width="557" height="374" alt="image" src="https://github.com/user-attachments/assets/d5d224c9-cf89-43ba-9609-4779fad0c1d7" />
 
