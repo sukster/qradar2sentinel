@@ -174,5 +174,4 @@ As mentioned, without entity mapping Defender XDR will not be able to automatica
 <br><br>
 For rest of the configuration of the analytic rule you may leave the default settings or modify them according to your requirements.
 <br><br>
-# Known limitations
-TBD
+
