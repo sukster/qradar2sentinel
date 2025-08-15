@@ -25,6 +25,10 @@ The M365 user who installed the gateway can manage the gateway at https://admin.
 <img width="865" height="546" alt="image" src="https://github.com/user-attachments/assets/9cb37b8f-979e-481b-9f76-404938b0f227" />
 <br><br>
 
+## Securing the Gateway Server
+Following the zero trust approach, configure the firewall rules on the Windows server to restrict communication from the server to other resources on your internal network except for QRadar API and possibly your DNS. If you can put the server into a zone behind a physical firewall this is even better.
+<br><br>
+
 ## Deployment Procedure in Azure
 We also need to create a On-premises data gateway resource in Azure. Follow the documentation here to deploy the gateway resource in Azure https://learn.microsoft.com/en-us/azure/logic-apps/connect-on-premises-data-sources?tabs=consumption. Important point to note is that to deploy the gateway in Azure you <strong>must use the same account</strong> that you used to sign in to Azure during the gateway installation on Windows. If this was a regular Microsoft 365 user account, make sure that this account has a contributor role to the Azure resource group (in our case "rg-sentinellogicapp").
 
