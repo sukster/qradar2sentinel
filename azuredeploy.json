@@ -723,7 +723,7 @@
                                             "queries": {
                                                 "element_type": "DATE",
                                                 "name": "SentinelLogicApp",
-                                                "time_to_live": "7 days",
+                                                "time_to_live": "30 days",
                                                 "key_label": "offense_id",
                                                 "timeout_type": "LAST_SEEN",
                                                 "value_label": "last_event_search_time"
