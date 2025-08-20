@@ -395,7 +395,7 @@
                         "in": "query",
                         "required": true,
                         "type": "string",
-                        "default": "7 days",
+                        "default": "30 days",
                         "description": "time_to_live",
                         "x-ms-visibility": "important",
                         "x-ms-summary": "TTL for elements"
@@ -615,4 +615,5 @@
     "securityDefinitions": {},
     "security": [],
     "tags": []
+
 }
