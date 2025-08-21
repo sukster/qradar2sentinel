@@ -6,11 +6,11 @@
             "type": "string",
             "defaultValue": "QRadar"
         },
-        "QradarHost": {
+        "QradarCertificateCommonName": {
             "type": "string",
             "defaultValue": "qradar750.homelab.local",
             "metadata": {
-                "description": "QRadar host FQDN (without https://)"
+                "description": "Enter CN from the QRadar certificate. This must be the same as the FQDN of the QRadar console."
             }
         }
     },
@@ -73,7 +73,7 @@
                     "gateway"
                 ],
                 "backendService": {
-                    "serviceUrl": "[concat('https://', parameters('QradarHost'))]"
+                    "serviceUrl": "[concat('https://', parameters('QradarCertificateCommonName'))]"
                 },
                 "apiType": "Rest",
                 "swagger": {
@@ -83,7 +83,7 @@
                         "title": "IBM QRadar Connector for Microsoft Sentinel",
                         "description": "This connector queries IBM QRadar API for open offenses and sends their contributing events to Microsoft Sentinel workspace"
                     },
-                    "host": "[parameters('QradarHost')]",
+                    "host": "[parameters('QradarCertificateCommonName')]",
                     "basePath": "/",
                     "schemes": [
                         "https"
