@@ -21,6 +21,9 @@ During the installation you will need to sign in with your organization's Micros
 Another important point to keep in mind during the gateway installation to install the gateway in the same Azure region where the logic apps custom connector will be deployed otherwise the gateway will not be able to use the custom connector. Changing the Azure region can be easily overlooked during the installation and so below is the screenshot where you can change it. 
 
 <img width="920" height="633" alt="image" src="https://github.com/user-attachments/assets/965e1d2a-8566-4b6d-a8c2-253ec2eb99d9" />
+<br><br>
+Make sure to save the gateway recovery key in a secure place just in case you need to reinstall the gateway to another server.
+<br><br>
 
 ## Managing the Data Gateway
 The M365 user who installed the gateway can manage the gateway at https://admin.powerplatform.microsoft.com/manage/ext/DataGateways. If you don't see the gateway make sure to select the correct region.
