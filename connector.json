@@ -1,619 +1,700 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "version": "1.0.0",
-        "title": "IBM QRadar Connector for Microsoft Sentinel",
-        "description": "This connector queries IBM QRadar API for open offenses and sends their contributing events to Microsoft Sentinel workspace"
-    },
-    "host": "qradar750.homelab.local",
-    "basePath": "/",
-    "schemes": [
-        "https"
-    ],
-    "consumes": [],
-    "produces": [
-        "application/json"
-    ],
-    "paths": {
-        "/api/siem/offenses": {
-            "get": {
-                "summary": "Get Offenses",
-                "description": "Get Offenses",
-                "operationId": "GetOffenses",
-                "parameters": [
-                    {
-                        "name": "filter",
-                        "default": "status = OPEN",
-                        "in": "query",
-                        "type": "string",
-                        "required": false,
-                        "description": "filter",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "Offense filter"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "SEC",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "Enter key vault secret",
-                        "description": "SEC",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "QRadar API Token"
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                },
-                "x-ms-visibility": "important"
-            }
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "connectorName": {
+            "type": "string",
+            "defaultValue": "QRadar"
         },
-        "/api/ariel/searches/{search_id}": {
-            "get": {
-                "summary": "Get Search Status",
-                "description": "Get Search Status",
-                "operationId": "GetSearchStatus",
-                "parameters": [
-                    {
-                        "name": "search_id",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "default": "Add AQL search ID here",
-                        "description": "search_id",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "AQL Search ID"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "SEC",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "Enter key vault secret",
-                        "description": "SEC",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "QRadar API Token"
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                },
-                "x-ms-visibility": "important"
-            }
-        },
-        "/api/ariel/searches/{search_id}/results": {
-            "get": {
-                "summary": "Get Search Results",
-                "description": "Get Search Results",
-                "operationId": "GetSearchResults",
-                "parameters": [
-                    {
-                        "name": "search_id",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "default": "Add AQL search ID here",
-                        "description": "search_id",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "AQL Search ID"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "SEC",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "Enter key vault secret",
-                        "description": "SEC",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "QRadar API Token"
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                },
-                "x-ms-visibility": "important"
-            }
-        },
-        "/api/ariel/searches": {
-            "post": {
-                "summary": "Search Events",
-                "description": "Search Events",
-                "operationId": "SearchEvents",
-                "parameters": [
-                    {
-                        "name": "query_expression",
-                        "in": "query",
-                        "required": true,
-                        "type": "string",
-                        "default": "SELECT * FROM events WHERE INOFFENSE(offense_id) START 1 STOP 2",
-                        "description": "query_expression",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "AQL Query"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "SEC",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "Enter key vault secret",
-                        "description": "SEC",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "QRadar API Token"
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                },
-                "x-ms-visibility": "important"
-            }
-        },
-        "/api/siem/offenses/{offense_id}": {
-            "post": {
-                "summary": "Update Offense Status",
-                "description": "Update Offense Status",
-                "operationId": "UpdateOffenseStatus",
-                "parameters": [
-                    {
-                        "name": "offense_id",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "default": 1,
-                        "description": "offense_id",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "Offense ID"
-                    },
-                    {
-                        "name": "status",
-                        "default": "OPEN",
-                        "in": "query",
-                        "type": "string",
-                        "required": true,
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "Offense status"
-                    },
-                    {
-                        "name": "closing_reason_id",
-                        "default": 1,
-                        "in": "query",
-                        "type": "string",
-                        "required": false,
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "Closing reason ID"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "SEC",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "Enter key vault secret",
-                        "description": "SEC",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "QRadar API Token"
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
-            }
-        },
-        "/api/reference_data/maps": {
-            "get": {
-                "summary": "Get ReferenceMaps",
-                "description": "Get ReferenceMaps",
-                "operationId": "GetReferenceMaps",
-                "parameters": [
-                    {
-                        "name": "filter",
-                        "default": "name=SentinelLogicApp",
-                        "in": "query",
-                        "type": "string",
-                        "required": false,
-                        "description": "filter",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "ReferenceMap filter"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "SEC",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "Enter key vault secret",
-                        "description": "SEC",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "QRadar API Token"
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                },
-                "x-ms-visibility": "important"
-            },
-            "post": {
-                "summary": "Create ReferenceMap",
-                "description": "Create ReferenceMap",
-                "operationId": "CreateReferenceMap",
-                "parameters": [
-                    {
-                        "name": "element_type",
-                        "in": "query",
-                        "required": true,
-                        "type": "string",
-                        "default": "DATE",
-                        "description": "element_type",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "Element Type"
-                    },
-                    {
-                        "name": "name",
-                        "in": "query",
-                        "required": true,
-                        "type": "string",
-                        "default": "SentinelLogicApp",
-                        "description": "name",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "ReferenceMap Name"
-                    },
-                    {
-                        "name": "key_label",
-                        "in": "query",
-                        "required": true,
-                        "type": "string",
-                        "default": "offense_id",
-                        "description": "key_label",
-                        "x-ms-visibility": "internal",
-                        "x-ms-summary": "Key Label"
-                    },
-                    {
-                        "name": "time_to_live",
-                        "in": "query",
-                        "required": true,
-                        "type": "string",
-                        "default": "30 days",
-                        "description": "time_to_live",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "TTL for elements"
-                    },
-                    {
-                        "name": "timeout_type",
-                        "in": "query",
-                        "required": true,
-                        "type": "string",
-                        "default": "LAST_SEEN",
-                        "description": "timeout_type",
-                        "x-ms-visibility": "internal",
-                        "x-ms-summary": "Timeout Type"
-                    },
-                    {
-                        "name": "value_label",
-                        "in": "query",
-                        "required": true,
-                        "type": "string",
-                        "default": "last_event_search_time",
-                        "description": "value_label",
-                        "x-ms-visibility": "internal",
-                        "x-ms-summary": "Last event search time"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "SEC",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "Enter key vault secret",
-                        "description": "SEC",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "QRadar API Token"
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                },
-                "x-ms-visibility": "important"
-            }
-        },
-        "/api/reference_data/maps/{name}": {
-            "get": {
-                "summary": "Get ReferenceMap Elements",
-                "description": "Get ReferenceMap Elements",
-                "operationId": "GetReferenceMapElements",
-                "parameters": [
-                    {
-                        "name": "name",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "default": "SentinelLogicApp",
-                        "description": "name",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "ReferenceMap Name"
-                    },
-                    {
-                        "name": "fields",
-                        "default": "data",
-                        "in": "query",
-                        "type": "string",
-                        "required": true,
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "Fields to return"
-                    },
-                    {
-                        "name": "filter",
-                        "default": "source=offense_id",
-                        "in": "query",
-                        "type": "string",
-                        "required": true,
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "Filter on offense ID"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "SEC",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "Enter key vault secret",
-                        "description": "SEC",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "QRadar API Token"
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                },
-                "x-ms-visibility": "important"
-            },
-            "post": {
-                "summary": "Update ReferenceMap Elements",
-                "description": "Update ReferenceMap Elements",
-                "operationId": "UpdateReferenceMapElements",
-                "parameters": [
-                    {
-                        "name": "name",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "default": "SentinelLogicApp",
-                        "description": "name",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "ReferenceMap Name"
-                    },
-                    {
-                        "name": "key",
-                        "default": "Enter offense id",
-                        "in": "query",
-                        "type": "string",
-                        "required": true,
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "Offense ID"
-                    },
-                    {
-                        "name": "value",
-                        "default": "Event timestamp",
-                        "in": "query",
-                        "type": "string",
-                        "required": true,
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "Last event search time"
-                    },
-                    {
-                        "name": "source",
-                        "default": "offenseId",
-                        "in": "query",
-                        "type": "string",
-                        "required": true,
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "Enter offenseId"
-                    },
-                    {
-                        "name": "Accept",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Accept",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "Content-Type",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "application/json",
-                        "description": "Content-Type",
-                        "x-ms-visibility": "internal"
-                    },
-                    {
-                        "name": "SEC",
-                        "in": "header",
-                        "required": true,
-                        "type": "string",
-                        "default": "Enter key vault secret",
-                        "description": "SEC",
-                        "x-ms-visibility": "important",
-                        "x-ms-summary": "QRadar API Token"
-                    }
-                ],
-                "responses": {
-                    "default": {
-                        "description": "default",
-                        "schema": {}
-                    }
-                }
+        "QradarHost": {
+            "type": "string",
+            "defaultValue": "qradar750.homelab.local",
+            "metadata": {
+                "description": "QRadar host FQDN (without https://)"
             }
         }
     },
-    "definitions": {},
-    "parameters": {},
-    "responses": {},
-    "securityDefinitions": {},
-    "security": [],
-    "tags": []
-
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Web/customApis",
+            "apiVersion": "2016-06-01",
+            "name": "[parameters('connectorName')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "connectionParameters": {
+                    "authType": {
+                        "type": "string",
+                        "allowedValues": [
+                            {
+                                "value": "none"
+                            }
+                        ],
+                        "uiDefinition": {
+                            "displayName": "Authentication Type",
+                            "description": "Authentication type to connect to your API",
+                            "tooltip": "Authentication type to connect to your API",
+                            "constraints": {
+                                "tabIndex": 1,
+                                "required": "true",
+                                "allowedValues": [
+                                    {
+                                        "text": "none",
+                                        "value": "anonymous"
+                                    }
+                                ],
+                                "capability": [
+                                    "gateway"
+                                ]
+                            }
+                        }
+                    },
+                    "gateway": {
+                        "type": "gatewaySetting",
+                        "gatewaySettings": {
+                            "dataSourceType": "CustomConnector",
+                            "connectionDetails": []
+                        },
+                        "uiDefinition": {
+                            "constraints": {
+                                "tabIndex": 4,
+                                "required": "true",
+                                "capability": [
+                                    "gateway"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "description": "This connector queries IBM QRadar API for open offenses and sends their contributing events to Microsoft Sentinel workspace",
+                "displayName": "[parameters('connectorName')]",
+                "iconUri": "https://content.powerapps.com/resource/makerx/static/media/default-connection-icon.74fb37fa.svg",
+                "capabilities": [
+                    "gateway"
+                ],
+                "backendService": {
+                    "serviceUrl": "[concat('https://', parameters('QradarHost'))]"
+                },
+                "apiType": "Rest",
+                "swagger": {
+                    "swagger": "2.0",
+                    "info": {
+                        "version": "1.0.0",
+                        "title": "IBM QRadar Connector for Microsoft Sentinel",
+                        "description": "This connector queries IBM QRadar API for open offenses and sends their contributing events to Microsoft Sentinel workspace"
+                    },
+                    "host": "[parameters('QradarHost')]",
+                    "basePath": "/",
+                    "schemes": [
+                        "https"
+                    ],
+                    "consumes": [],
+                    "produces": [
+                        "application/json"
+                    ],
+                    "paths": {
+                        "/api/siem/offenses": {
+                            "get": {
+                                "summary": "Get Offenses",
+                                "description": "Get Offenses",
+                                "operationId": "GetOffenses",
+                                "parameters": [
+                                    {
+                                        "name": "filter",
+                                        "default": "status = OPEN",
+                                        "in": "query",
+                                        "type": "string",
+                                        "required": false,
+                                        "description": "filter",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "Offense filter"
+                                    },
+                                    {
+                                        "name": "Accept",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Accept",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "Content-Type",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Content-Type",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "SEC",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "Enter key vault secret",
+                                        "description": "SEC",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "QRadar API Token"
+                                    }
+                                ],
+                                "responses": {
+                                    "default": {
+                                        "description": "default",
+                                        "schema": {}
+                                    }
+                                },
+                                "x-ms-visibility": "important"
+                            }
+                        },
+                        "/api/ariel/searches/{search_id}": {
+                            "get": {
+                                "summary": "Get Search Status",
+                                "description": "Get Search Status",
+                                "operationId": "GetSearchStatus",
+                                "parameters": [
+                                    {
+                                        "name": "search_id",
+                                        "in": "path",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "Add AQL search ID here",
+                                        "description": "search_id",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "AQL Search ID"
+                                    },
+                                    {
+                                        "name": "Accept",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Accept",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "Content-Type",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Content-Type",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "SEC",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "Enter key vault secret",
+                                        "description": "SEC",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "QRadar API Token"
+                                    }
+                                ],
+                                "responses": {
+                                    "default": {
+                                        "description": "default",
+                                        "schema": {}
+                                    }
+                                },
+                                "x-ms-visibility": "important"
+                            }
+                        },
+                        "/api/ariel/searches/{search_id}/results": {
+                            "get": {
+                                "summary": "Get Search Results",
+                                "description": "Get Search Results",
+                                "operationId": "GetSearchResults",
+                                "parameters": [
+                                    {
+                                        "name": "search_id",
+                                        "in": "path",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "Add AQL search ID here",
+                                        "description": "search_id",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "AQL Search ID"
+                                    },
+                                    {
+                                        "name": "Accept",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Accept",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "Content-Type",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Content-Type",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "SEC",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "Enter key vault secret",
+                                        "description": "SEC",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "QRadar API Token"
+                                    }
+                                ],
+                                "responses": {
+                                    "default": {
+                                        "description": "default",
+                                        "schema": {}
+                                    }
+                                },
+                                "x-ms-visibility": "important"
+                            }
+                        },
+                        "/api/ariel/searches": {
+                            "post": {
+                                "summary": "Search Events",
+                                "description": "Search Events",
+                                "operationId": "SearchEvents",
+                                "parameters": [
+                                    {
+                                        "name": "query_expression",
+                                        "in": "query",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "SELECT * FROM events WHERE INOFFENSE(offense_id) START 1 STOP 2",
+                                        "description": "query_expression",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "AQL Query"
+                                    },
+                                    {
+                                        "name": "Accept",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Accept",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "Content-Type",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Content-Type",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "SEC",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "Enter key vault secret",
+                                        "description": "SEC",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "QRadar API Token"
+                                    }
+                                ],
+                                "responses": {
+                                    "default": {
+                                        "description": "default",
+                                        "schema": {}
+                                    }
+                                },
+                                "x-ms-visibility": "important"
+                            }
+                        },
+                        "/api/siem/offenses/{offense_id}": {
+                            "post": {
+                                "summary": "Update Offense Status",
+                                "description": "Update Offense Status",
+                                "operationId": "UpdateOffenseStatus",
+                                "parameters": [
+                                    {
+                                        "name": "offense_id",
+                                        "in": "path",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": 1,
+                                        "description": "offense_id",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "Offense ID"
+                                    },
+                                    {
+                                        "name": "status",
+                                        "default": "OPEN",
+                                        "in": "query",
+                                        "type": "string",
+                                        "required": true,
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "Offense status"
+                                    },
+                                    {
+                                        "name": "closing_reason_id",
+                                        "default": 1,
+                                        "in": "query",
+                                        "type": "string",
+                                        "required": false,
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "Closing reason ID"
+                                    },
+                                    {
+                                        "name": "Accept",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Accept",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "Content-Type",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Content-Type",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "SEC",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "Enter key vault secret",
+                                        "description": "SEC",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "QRadar API Token"
+                                    }
+                                ],
+                                "responses": {
+                                    "default": {
+                                        "description": "default",
+                                        "schema": {}
+                                    }
+                                }
+                            }
+                        },
+                        "/api/reference_data/maps": {
+                            "get": {
+                                "summary": "Get ReferenceMaps",
+                                "description": "Get ReferenceMaps",
+                                "operationId": "GetReferenceMaps",
+                                "parameters": [
+                                    {
+                                        "name": "filter",
+                                        "default": "name=SentinelLogicApp",
+                                        "in": "query",
+                                        "type": "string",
+                                        "required": false,
+                                        "description": "filter",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "ReferenceMap filter"
+                                    },
+                                    {
+                                        "name": "Accept",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Accept",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "Content-Type",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Content-Type",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "SEC",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "Enter key vault secret",
+                                        "description": "SEC",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "QRadar API Token"
+                                    }
+                                ],
+                                "responses": {
+                                    "default": {
+                                        "description": "default",
+                                        "schema": {}
+                                    }
+                                },
+                                "x-ms-visibility": "important"
+                            },
+                            "post": {
+                                "summary": "Create ReferenceMap",
+                                "description": "Create ReferenceMap",
+                                "operationId": "CreateReferenceMap",
+                                "parameters": [
+                                    {
+                                        "name": "element_type",
+                                        "in": "query",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "DATE",
+                                        "description": "element_type",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "Element Type"
+                                    },
+                                    {
+                                        "name": "name",
+                                        "in": "query",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "SentinelLogicApp",
+                                        "description": "name",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "ReferenceMap Name"
+                                    },
+                                    {
+                                        "name": "key_label",
+                                        "in": "query",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "offense_id",
+                                        "description": "key_label",
+                                        "x-ms-visibility": "internal",
+                                        "x-ms-summary": "Key Label"
+                                    },
+                                    {
+                                        "name": "time_to_live",
+                                        "in": "query",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "30 days",
+                                        "description": "time_to_live",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "TTL for elements"
+                                    },
+                                    {
+                                        "name": "timeout_type",
+                                        "in": "query",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "LAST_SEEN",
+                                        "description": "timeout_type",
+                                        "x-ms-visibility": "internal",
+                                        "x-ms-summary": "Timeout Type"
+                                    },
+                                    {
+                                        "name": "value_label",
+                                        "in": "query",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "last_event_search_time",
+                                        "description": "value_label",
+                                        "x-ms-visibility": "internal",
+                                        "x-ms-summary": "Last event search time"
+                                    },
+                                    {
+                                        "name": "Accept",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Accept",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "Content-Type",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Content-Type",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "SEC",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "Enter key vault secret",
+                                        "description": "SEC",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "QRadar API Token"
+                                    }
+                                ],
+                                "responses": {
+                                    "default": {
+                                        "description": "default",
+                                        "schema": {}
+                                    }
+                                },
+                                "x-ms-visibility": "important"
+                            }
+                        },
+                        "/api/reference_data/maps/{name}": {
+                            "get": {
+                                "summary": "Get ReferenceMap Elements",
+                                "description": "Get ReferenceMap Elements",
+                                "operationId": "GetReferenceMapElements",
+                                "parameters": [
+                                    {
+                                        "name": "name",
+                                        "in": "path",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "SentinelLogicApp",
+                                        "description": "name",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "ReferenceMap Name"
+                                    },
+                                    {
+                                        "name": "fields",
+                                        "default": "data",
+                                        "in": "query",
+                                        "type": "string",
+                                        "required": true,
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "Fields to return"
+                                    },
+                                    {
+                                        "name": "filter",
+                                        "default": "source=offense_id",
+                                        "in": "query",
+                                        "type": "string",
+                                        "required": true,
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "Filter on offense ID"
+                                    },
+                                    {
+                                        "name": "Accept",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Accept",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "Content-Type",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Content-Type",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "SEC",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "Enter key vault secret",
+                                        "description": "SEC",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "QRadar API Token"
+                                    }
+                                ],
+                                "responses": {
+                                    "default": {
+                                        "description": "default",
+                                        "schema": {}
+                                    }
+                                },
+                                "x-ms-visibility": "important"
+                            },
+                            "post": {
+                                "summary": "Update ReferenceMap Elements",
+                                "description": "Update ReferenceMap Elements",
+                                "operationId": "UpdateReferenceMapElements",
+                                "parameters": [
+                                    {
+                                        "name": "name",
+                                        "in": "path",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "SentinelLogicApp",
+                                        "description": "name",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "ReferenceMap Name"
+                                    },
+                                    {
+                                        "name": "key",
+                                        "default": "Enter offense id",
+                                        "in": "query",
+                                        "type": "string",
+                                        "required": true,
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "Offense ID"
+                                    },
+                                    {
+                                        "name": "value",
+                                        "default": "Event timestamp",
+                                        "in": "query",
+                                        "type": "string",
+                                        "required": true,
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "Last event search time"
+                                    },
+                                    {
+                                        "name": "source",
+                                        "default": "offenseId",
+                                        "in": "query",
+                                        "type": "string",
+                                        "required": true,
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "Enter offenseId"
+                                    },
+                                    {
+                                        "name": "Accept",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Accept",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "Content-Type",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "application/json",
+                                        "description": "Content-Type",
+                                        "x-ms-visibility": "internal"
+                                    },
+                                    {
+                                        "name": "SEC",
+                                        "in": "header",
+                                        "required": true,
+                                        "type": "string",
+                                        "default": "Enter key vault secret",
+                                        "description": "SEC",
+                                        "x-ms-visibility": "important",
+                                        "x-ms-summary": "QRadar API Token"
+                                    }
+                                ],
+                                "responses": {
+                                    "default": {
+                                        "description": "default",
+                                        "schema": {}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "definitions": {},
+                    "parameters": {},
+                    "responses": {},
+                    "securityDefinitions": {},
+                    "security": [],
+                    "tags": []
+                }
+            }
+        }
+    ]
 }
