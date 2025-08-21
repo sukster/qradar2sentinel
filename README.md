@@ -99,6 +99,7 @@ We will add the QRadar API token to the key vault as a secret.
 In Azure portal go to the qradar-api key vault and under Objects click Secrets. Then click Generate/Import button. We will call this secret "qradar-api-token". Paste the QRadar API token to the field called Secret value and click Create.
 
 <img width="911" height="564" alt="image" src="https://github.com/user-attachments/assets/65f9f514-b10a-423d-b253-cc6746bc725d" />
+<br><br>
 
 ## Deploy Logic Apps Custom Connector
 We will deploy a custom connector for QRadar that will allow the logic app to query QRadar API using the data gateway. 
@@ -108,7 +109,6 @@ You can deploy and configure the connector to Azure by clicking the button below
 <br><br>
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsukster%2Fqradar2sentinel%2Frefs%2Fheads%2Fmain%2Fazuredeploy.json)
 
-<br><br>
 The Common Name (CN) for your QRadar's SSL certificate can be found when you open the certificate in the web browser. This value should be the same as the FQDN for your QRadar console.
 <br><br>
 <img width="1313" height="683" alt="image" src="https://github.com/user-attachments/assets/98720e11-bcdc-451b-bb03-76cee1fca663" />
