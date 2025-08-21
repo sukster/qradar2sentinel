@@ -17,7 +17,7 @@ Let's start with installing the data gateway which will run on-premise where you
 ## Install Procedure on Windows
 On-premises Data Gateway supports either Windows Server 2019 and higher or Windows 10 and higher. I recommend Windows Server for performace reasons but if you only have Windows 11 license, it should be fine. I successfully tested this deployement on Windows Server 2022 Standard which was Azure Arc joined and Windows 11 Enterprise which was Entra ID joined. From the networking perspective, make sure that your QRadar portal (and consequently its API) is accessible from this server - you can check that from the web browser on the server. <br>
 Follow the installation procedure here: https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-install#download-and-install-a-standard-gateway. <br>
-During the installation you will need to sign in with your organization's Microsoft 365 account. The gateway will be associated with that account. This could be a regular Microsoft 365 user account without additional administrative roles however make sure that this account will not be disabled or deleted one day. Unfortunately, service principals are not supported yet.<br>
+During the installation you will need to sign in with your organization's Microsoft 365 account. The gateway will be associated with that account. This could be a regular Microsoft 365 user account without additional administrative roles.<br>
 Another important point to keep in mind during the gateway installation to install the gateway in the same Azure region where the logic apps custom connector will be deployed otherwise the gateway will not be able to use the custom connector. Changing the Azure region can be easily overlooked during the installation and so below is the screenshot where you can change it. 
 
 <img width="920" height="633" alt="image" src="https://github.com/user-attachments/assets/965e1d2a-8566-4b6d-a8c2-253ec2eb99d9" />
@@ -26,6 +26,8 @@ Another important point to keep in mind during the gateway installation to insta
 The M365 user who installed the gateway can manage the gateway at https://admin.powerplatform.microsoft.com/manage/ext/DataGateways. If you don't see the gateway make sure to select the correct region.
 <br><br>
 <img width="865" height="546" alt="image" src="https://github.com/user-attachments/assets/9cb37b8f-979e-481b-9f76-404938b0f227" />
+<br><br>
+It is highly recommended to assign a second gateway admin here. Click the gateway -> Manage users -> add a second admin user and assign the gateway admin role.
 <br><br>
 
 ## Securing the Gateway Server
