@@ -104,20 +104,12 @@ In Azure portal go to the qradar-api key vault and under Objects click Secrets. 
 We will deploy a custom connector for QRadar that will allow the logic app to query QRadar API using the data gateway. 
 
 ### Deployment in Azure
-In Azure portal, create a new Logic Apps Custom Connector and call it "QRadar". 
+In Azure portal, create a new Logic Apps Custom Connector. You can deploy and configure the connector to Azure by clicking the button below.
 <br><br>
-<img width="876" height="653" alt="image" src="https://github.com/user-attachments/assets/fa95009a-48d7-4b57-a338-63bc84da1af8" />
-<br><br>
-Once the connector resource has been created, edit the connector and import the connector.json file which can be downloaded from this repository.
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsukster%2Fqradar2sentinel%2Frefs%2Fheads%2Fmain%2Fazuredeploy.json)
 
-<img width="1253" height="618" alt="image" src="https://github.com/user-attachments/assets/4e842280-dc06-4efa-9bf0-6d92ad5e506a" />
 <br><br>
-
-Then in the General Information section, update the Host field and add the hostname (or FQDN) for your QRadar.  
-
-<img width="797" height="851" alt="image" src="https://github.com/user-attachments/assets/78b4b58a-5e53-4702-b10b-c71b7f1fb183" />
-<br><br>
-This must be the same as the Common Name (CN) on your QRadar's SSL certificate.
+The Common Name (CN) for your QRadar's SSL certificate can be found in the web browser here:
 <br><br>
 <img width="1313" height="683" alt="image" src="https://github.com/user-attachments/assets/98720e11-bcdc-451b-bb03-76cee1fca663" />
 <br><br>
