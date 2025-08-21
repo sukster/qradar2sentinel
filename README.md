@@ -107,7 +107,8 @@ We will deploy a custom connector for QRadar that will allow the logic app to qu
 ### Deployment in Azure
 You can deploy and configure the connector to Azure by clicking the button below.
 <br><br>
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsukster%2Fqradar2sentinel%2Frefs%2Fheads%2Fmain%2Fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsukster%2Fqradar2sentinel%2Frefs%2Fheads%2Fmain%2Fconnector.json)
+<br>
 
 The Common Name (CN) for your QRadar's SSL certificate can be found when you open the certificate in the web browser. This value should be the same as the FQDN for your QRadar console.
 <br><br>
