@@ -30,7 +30,7 @@ The M365 user who installed the gateway can manage the gateway at https://admin.
 <br><br>
 <img width="865" height="546" alt="image" src="https://github.com/user-attachments/assets/9cb37b8f-979e-481b-9f76-404938b0f227" />
 <br><br>
-It is highly recommended to assign a second gateway admin here. Click the gateway -> Manage users -> add a second admin user and assign the gateway admin role.
+It is highly recommended to assign a second gateway admin here. Click the gateway -> Manage users -> add a second admin user -> click the user and assign the Admin role.
 <br><br>
 
 ## Securing the Gateway Server
